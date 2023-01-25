@@ -1,0 +1,30 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "udacity1111",
+        "database": "database-3",
+        "host": "database-3.crqnacyiyjzg.us-east-1.rds.amazonaws.com",
+        "port": "5432",
+        "dialect": "postgres",
+        "aws_region": "us-east-1c,",
+        "aws_profile": "default"
+    },
+    "test": {
+        "username": "root",
+        "password": "udacity1111",
+        "database": "database-3",
+        "host": "database-3.crqnacyiyjzg.us-east-1.rds.amazonaws.com",
+        "dialect": "postgres",
+        "aws_region": "us-east-1c",
+        "aws_profile": "default"
+    },
+    "production": {
+        "username": "root",
+        "password": "udacity1111",
+        "database": "database-3",
+        "host": "database-3.crqnacyiyjzg.us-east-1.rds.amazonaws.com",
+        "dialect": "postgres",
+        "aws_region": "us-east-1c",
+        "aws_profile": "default"
+    }
+}
