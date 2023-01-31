@@ -1,7 +1,4 @@
 import express from 'express';
-import Response from 'express';
-import Request from 'express';
-import Router from 'express';
 import {cars} from './cars.js';
 import bodyParser from 'body-parser';
 

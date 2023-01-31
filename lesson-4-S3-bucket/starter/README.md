@@ -49,10 +49,11 @@ router.post("/api/uploads",
 async (req, res) => {
   const id = uuidv4();
 
-  var JSON_Obj = req.body;
+  const JSON_Obj = req.body;
+  let image_url;
 
-  for(var key in JSON_Obj){
-    var image_url = key;
+  for(let key in JSON_Obj){
+    image_url = key;
   }
 
   if (!image_url || image_url == null) {

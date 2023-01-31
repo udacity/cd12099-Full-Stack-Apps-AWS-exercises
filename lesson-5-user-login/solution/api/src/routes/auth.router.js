@@ -21,10 +21,6 @@ router.post('/login', async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-
-   console.log("user", email);
-   console.log("password", password);
-
     // check email is valid
     if (!email || !EmailValidator.validate(email)) {
         return res.status(400).send({ auth: false, message: 'Email is required or malformed' });

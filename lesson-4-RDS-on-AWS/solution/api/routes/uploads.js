@@ -9,10 +9,11 @@ router.post("/api/uploads",
 
 async (req, res) => {
   id = Math.floor(Math.random() * 100000000);
-  var JSON_Obj = req.body;
+  let image_url;
+  let JSON_Obj = req.body;
 
-  for(var key in JSON_Obj){
-    var image_url = key;
+  for(let key in JSON_Obj){
+     image_url = key;
   }
 
   if (!image_url || image_url == null) {
