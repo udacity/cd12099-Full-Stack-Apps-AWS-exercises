@@ -1,0 +1,2 @@
+curl -d https://cdn.discordapp.com/avatars/472158887966015508/a64800726ff83aedd350092730484a1e.jpg -X POST http://localhost:8000/api/uploads
+
