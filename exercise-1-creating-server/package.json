@@ -1,0 +1,19 @@
+{
+  "name": "basic-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "js-yaml": "^3.14.1",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
