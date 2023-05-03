@@ -1,17 +1,16 @@
 import express from "express";
 import tweetService from "../service/tweetService.js";
-import { tweets } from '../tweets.js';
 export const router = express.Router();
 
 // Get tweet by id
-router.get( "/tweets/:id", ( req, res ) => {
+router.get( "/tweets/:id", async ( req, res ) => {
     let { id } = req.params;
 
     if ( !id ) {
       return res.status(400).send(`Tweet id is required`);
     }
 
-    const tweetById = tweetService.findTweetById(id)
+    const tweetById = await tweetService.findTweetById(id)
 
     if(!tweetById){
       return res.status(404).send(`Tweet not found`)
@@ -21,20 +20,22 @@ router.get( "/tweets/:id", ( req, res ) => {
 } );
 
 // Get list of tweets
-router.get( "/tweets/", ( req, res ) => {
+router.get( "/tweets/", async ( req, res ) => {
   let { author } = req.query;
   
-  let tweetList = tweets;
+  let tweetList;
 
   if (author) {
-    tweetList = tweetService.findTweetsByAuthor(author)
+    tweetList = await tweetService.findTweetsByAuthor(author)
+  } else {
+    tweetList = await tweetService.findAll();
   }
 
   res.status(200).send(tweetList);
 } );
 
 // Create a tweet
-router.post( "/tweets/", ( req, res ) => {
+router.post( "/tweets/", async ( req, res ) => {
     // destruct request body
     let { author, text, imgUrl } = req.body;
 
@@ -42,7 +43,7 @@ router.post( "/tweets/", ( req, res ) => {
       return res.status(400).send("Missing required tweet information")
     }
 
-    tweetService.createTweet(author, text, imgUrl)
+    const newTweet = await tweetService.createTweet(author, text, imgUrl)
 
     res.status(201).send(newTweet);
 } );

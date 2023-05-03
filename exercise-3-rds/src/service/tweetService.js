@@ -1,4 +1,4 @@
-import prisma from "../prismaClient";
+import prisma from "../prismaClient.js";
 
 export class TweetService {
     async findTweetById(id){
@@ -7,6 +7,10 @@ export class TweetService {
               id: id,
             },
         });
+    }
+    
+    async findAll(){
+      return await prisma.tweet.findMany();
     }
 
     async findTweetsByAuthor(author){

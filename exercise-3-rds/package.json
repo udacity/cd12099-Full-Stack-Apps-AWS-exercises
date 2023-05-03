@@ -7,6 +7,9 @@
   "scripts": {
     "start": "node src/server.js --watch"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
