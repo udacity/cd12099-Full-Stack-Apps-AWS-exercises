@@ -35,13 +35,13 @@ router.get( "/tweets/", ( req, res ) => {
 // Create a tweet
 router.post( "/tweets/", ( req, res ) => {
     // destruct request body
-    let { title, author, text, imgUrl } = req.body;
+    let { author, text, imgUrl } = req.body;
 
-    if(!title || !author || !text){
+    if(!author || !text){
       return res.status(400).send("Missing required tweet information")
     }
 
-    const newTweet = {id: tweets.length,title, text, author, imgUrl}
+    const newTweet = {id: tweets.length, text, author, imgUrl}
     tweets.push(newTweet)
 
     res.status(201).send(newTweet);
