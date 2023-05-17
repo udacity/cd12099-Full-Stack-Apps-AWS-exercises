@@ -28,18 +28,18 @@ The source code for this demo resides in the ./src directory.
 #### Test URL
 'http://localhost:8080/
 
-#### Curl commands
+## Curl commands
 
-## Get tweet by id
+#### Get tweet by id
 curl --location 'http://localhost:8080/tweets/1'
 
-## Get list of tweets
+#### Get list of tweets
 curl --location 'http://localhost:8080/tweets'
 
-## Get list of tweets filtered by author
+#### Get list of tweets filtered by author
 curl --location 'http://localhost:8080/tweets?author=Michael'
 
-## Create a new tweet
+#### Create a new tweet
 curl --location 'http://localhost:8080/tweets' \
 --header 'Content-Type: application/json' \
 --data '{
