@@ -1,6 +1,6 @@
-# udacity-c2-basic-server
+# udacity-tweets-app
 
-This is a simple node-express server.
+This is a simple tweeter like application server.
 
 ***
 ## Getting Setup
