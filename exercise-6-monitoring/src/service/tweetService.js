@@ -2,15 +2,17 @@ import prisma from "../prismaClient.js";
 
 export class TweetService {
     async findTweetById(id){
-         return await prisma.tweet.findUnique({
-            where: {
-              id: id,
-            },
-        });
+      const result = await prisma.tweet.findUnique({
+          where: {
+            id: id,
+          },
+      });
+      return result;
     }
     
     async findAll(){
-      return await prisma.tweet.findMany();
+      const result = await prisma.tweet.findMany();
+      return result;
     }
 
     async findTweetsByAuthor(author){

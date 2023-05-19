@@ -1,8 +1,8 @@
+import AWSXRay from 'aws-xray-sdk';
 import bodyParser from 'body-parser';
 import express from 'express';
 import { router as imageRoutes } from './routes/imageRoutes.js';
 import { router as tweetRoutes } from './routes/tweetRoutes.js';
-import AWSXRay from 'aws-xray-sdk'
 
 (async () => {
   //Create an express application
