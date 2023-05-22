@@ -21,7 +21,7 @@ import { requiresAuth } from './middleware/requiresAuthMiddleware.js';
     res.status(200).send("Welcome to the Cloud!");
   } );
 
-  app.use(authRoutes)
+  app.use("/auth", authRoutes)
   app.use(requiresAuth(), tweetRoutes)
   app.use(requiresAuth(), imageRoutes)
 
