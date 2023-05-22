@@ -15,6 +15,7 @@
   "dependencies": {
     "argon2": "^0.28.7",
     "@aws-sdk/client-s3": "^3.325.0",
+    "@cosva-lab/aws-xray-sdk-prisma": "^0.0.7",
     "bcrypt": "^5.0.1",
     "@prisma/client": "^4.13.0",
     "aws-xray-sdk": "^3.5.0",

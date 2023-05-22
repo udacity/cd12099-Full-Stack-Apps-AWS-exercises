@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { PRIVATE_KEY, PUBLIC_KEY } from "../../keys";
+import { PRIVATE_KEY, PUBLIC_KEY } from "../../keys.js";
 
 
 class TokenService {
@@ -40,6 +40,7 @@ class TokenService {
     if (!req.headers.authorization) {
         throw new Error("Missing Authorization header");
     }
+    console.log('author', req.headers.authorization)
     const authHeader = req.headers.authorization;
     const token = authHeader.split(" ")[1];
     const decodedToken = jwt.verify(token, PUBLIC_KEY)

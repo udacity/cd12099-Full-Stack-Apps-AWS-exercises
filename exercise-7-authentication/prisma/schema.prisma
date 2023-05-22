@@ -20,7 +20,8 @@ model Tweet {
 
 model User {
   email               String @id @unique
-  hashedPassword      String?
+  hashedPassword      String
+  salt                String
   firstName           String?
   lastName            String?
 

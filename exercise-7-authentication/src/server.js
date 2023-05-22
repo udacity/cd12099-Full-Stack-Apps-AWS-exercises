@@ -4,6 +4,7 @@ import { router as imageRoutes } from './routes/imageRoutes.js';
 import { router as tweetRoutes } from './routes/tweetRoutes.js';
 import { router as authRoutes } from './routes/authRoutes.js';
 import AWSXRay from 'aws-xray-sdk'
+import { requiresAuth } from './middleware/requiresAuthMiddleware.js';
 
 (async () => {
   //Create an express application
@@ -21,8 +22,8 @@ import AWSXRay from 'aws-xray-sdk'
   } );
 
   app.use(authRoutes)
-  app.use(tweetRoutes)
-  app.use(imageRoutes)
+  app.use(requiresAuth(), tweetRoutes)
+  app.use(requiresAuth(), imageRoutes)
 
   app.use(AWSXRay.express.closeSegment());
   // Start the Server

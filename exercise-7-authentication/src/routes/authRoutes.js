@@ -1,6 +1,7 @@
 import express from "express";
-import tokenService from "../service/tokenService";
-import userService from "../service/userService";
+import passwordService from "../service/passwordService.js";
+import tokenService from "../service/tokenService.js";
+import userService from "../service/userService.js";
 
 export const router = express.Router();
 
@@ -11,12 +12,13 @@ router.post("/token", async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    if (!await passwordService.verifyPassword(password, user.hashedPassword)) {
+    if (!await passwordService.verifyPassword(password, user.hashedPassword, user.salt)) {
       return res.status(401).json({ message: "Unauthorized" });
     }
     const { accessToken, refreshToken } = tokenService.generateTokens(user);
     return res.json({ access_token: accessToken, refresh_token: refreshToken, token_type: "bearer" });
   } catch (error) {
+    console.error(error)
     return res.status(500).send("Error occured")
   }
 });

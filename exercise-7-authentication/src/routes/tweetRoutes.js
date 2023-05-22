@@ -1,9 +1,8 @@
 import express from "express";
-import { requiresAuth } from "../middleware/requiresAuthMiddleware.js";
 import tweetService from "../service/tweetService.js";
 export const router = express.Router();
 // Get tweet by id
-router.get( "/tweets/:id", requiresAuth, async ( req, res ) => {
+router.get( "/tweets/:id", async ( req, res ) => {
     let { id } = req.params;
 
     if ( !id ) {
@@ -20,7 +19,7 @@ router.get( "/tweets/:id", requiresAuth, async ( req, res ) => {
 } );
 
 // Get list of tweets
-router.get( "/tweets/", requiresAuth, async ( req, res ) => {
+router.get( "/tweets/", async ( req, res ) => {
   let { author } = req.query;
   
   let tweetList;
@@ -35,7 +34,7 @@ router.get( "/tweets/", requiresAuth, async ( req, res ) => {
 } );
 
 // Create a tweet
-router.post( "/tweets/", requiresAuth, async ( req, res ) => {
+router.post( "/tweets/", async ( req, res ) => {
     // destruct request body
     let { author, text, imgUrl } = req.body;
 
