@@ -3,7 +3,7 @@ import secretsService from "./secretsService.js";
 
 class TokenService {
   async generateTokens(user) {
-    const PRIVATE_KEY = await secretsService.getJwtPrivateKey()
+    const PRIVATE_KEY = await secretsService.getSecret("tweets-app-jwt-private-key")
     const accessToken = jwt.sign(
       {
         email: user.email,
@@ -35,7 +35,7 @@ class TokenService {
     if (!req.headers.authorization) {
         throw new Error("Missing Authorization header");
     }
-    const PUBLIC_KEY = await secretsService.getJwtPublicKey()
+    const PUBLIC_KEY = await secretsService.getSecret("tweets-app-jwt-public-key")
     const authHeader = req.headers.authorization;
     const token = authHeader.split(" ")[1];
     const decodedToken = jwt.verify(token, PUBLIC_KEY)

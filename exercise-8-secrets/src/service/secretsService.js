@@ -12,26 +12,17 @@ const client = new SecretsManagerClient({
 });
 
 class SecretsService {
-  async getJwtPrivateKey() {
+  async getSecret(secretName) {
     try{
       const secret =  await client.send(new GetSecretValueCommand({
-        SecretId: "tweets-app-jwt-private-key"
+        SecretId: secretName
       }))
       return secret.SecretString
     } catch(e){
-      console.error('Get jwt private key error', e)
+      console.error('Get secret error', e)
     }
   }
-  async getJwtPublicKey() {
-    try{
-      const secret =  await client.send(new GetSecretValueCommand({
-        SecretId: "tweets-app-jwt-public-key"
-      }))
-      return secret.SecretString
-    } catch(e){
-      console.error('Get jwt public key error', e)
-    }
-  }
+
 }
 
 export default new SecretsService();
