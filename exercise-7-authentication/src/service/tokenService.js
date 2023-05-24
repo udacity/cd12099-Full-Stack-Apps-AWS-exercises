@@ -31,13 +31,7 @@ class TokenService {
     return decodedToken;
   }
 
-  verifyToken(req) {
-    if (!req.headers.authorization) {
-        throw new Error("Missing Authorization header");
-    }
-    console.log('author', req.headers.authorization)
-    const authHeader = req.headers.authorization;
-    const token = authHeader.split(" ")[1];
+  verifyToken(token) {
     const decodedToken = jwt.verify(token, PUBLIC_KEY)
     return decodedToken;
   }
