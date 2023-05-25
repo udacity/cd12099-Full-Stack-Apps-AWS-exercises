@@ -22,8 +22,8 @@ import { requiresAuth } from './middleware/requiresAuthMiddleware.js';
   } );
 
   app.use("/auth", authRoutes)
-  app.use(requiresAuth(), tweetRoutes)
-  app.use(requiresAuth(), imageRoutes)
+  app.use("/tweets", requiresAuth(), tweetRoutes)
+  app.use("/images", requiresAuth(), imageRoutes)
 
   app.use(AWSXRay.express.closeSegment());
   // Start the Server
